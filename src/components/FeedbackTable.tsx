@@ -24,7 +24,7 @@ const FeedbackTable = ({ reload }: { reload: boolean }) => {
         // if (key !== adminKey) {
         //     navigate('/');
         // }
-    }, [location, navigate]);
+    }, [location]);
 
     // Edit State
     const [editingFeedback, setEditingFeedback] = useState<Feedback | null>(null);
