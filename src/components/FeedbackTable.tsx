@@ -21,9 +21,9 @@ const FeedbackTable = ({ reload }: { reload: boolean }) => {
         console.log("URL key:", key);
         console.log("ENV key:", adminKey);
 
-        if (key !== adminKey) {
-            navigate('/');
-        }
+        // if (key !== adminKey) {
+        //     navigate('/');
+        // }
     }, [location, navigate]);
 
     // Edit State
