@@ -1,31 +1,19 @@
 import { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
 import api from '../api/api';
 import type { Feedback } from '../models/Feedback';
 import Loader from './Loader';
 
 const FeedbackTable = ({ reload }: { reload: boolean }) => {
 
-    const navigate = useNavigate();
-    const location = useLocation();
+    // const navigate = useNavigate();
+    // const location = useLocation();
 
     const [feedbacks, setFeedbacks] = useState<Feedback[]>([]);
     const [email, setEmail] = useState('');
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
-    // Auth Check
-    useEffect(() => {
-        const params = new URLSearchParams(location.search);
-        const key = params.get('key');
-        const adminKey = import.meta.env.VITE_ADMIN_KEY;
-        console.log("URL key:", key);
-        console.log("ENV key:", adminKey);
 
-        // if (key !== adminKey) {
-        //     navigate('/');
-        // }
-    }, [location]);
 
     // Edit State
     const [editingFeedback, setEditingFeedback] = useState<Feedback | null>(null);
