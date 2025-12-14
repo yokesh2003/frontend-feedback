@@ -18,6 +18,8 @@ const FeedbackTable = ({ reload }: { reload: boolean }) => {
         const params = new URLSearchParams(location.search);
         const key = params.get('key');
         const adminKey = import.meta.env.VITE_ADMIN_KEY;
+        console.log("URL key:", key);
+        console.log("ENV key:", adminKey);
 
         if (key !== adminKey) {
             navigate('/');
