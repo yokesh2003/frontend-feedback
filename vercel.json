@@ -1,19 +1,8 @@
 {
-    "rewrites": [
+    "routes": [
         {
-            "source": "/((?!assets/|.*\\..*).*)",
-            "destination": "/index.html"
-        }
-    ],
-    "headers": [
-        {
-            "source": "/(.*)",
-            "headers": [
-                {
-                    "key": "Content-Security-Policy",
-                    "value": "default-src 'self' https://feedback-backend-gvav.onrender.com; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://feedback-backend-gvav.onrender.com;"
-                }
-            ]
+            "src": "/(.*)",
+            "dest": "/"
         }
     ]
 }
