@@ -12,6 +12,7 @@ const FeedbackTable = ({ reload }: { reload: boolean }) => {
     const [feedbacks, setFeedbacks] = useState<Feedback[]>([]);
     const [email, setEmail] = useState('');
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
 
     // Auth Check
     useEffect(() => {
@@ -46,13 +47,15 @@ const FeedbackTable = ({ reload }: { reload: boolean }) => {
 
     const loadData = async () => {
         setLoading(true);
+        setError(null);
         try {
             const response = await api.get('/feedback', {
                 params: email ? { email } : {}
             });
             setFeedbacks(response.data);
-        } catch (error) {
+        } catch (error: any) {
             console.error("Failed to load feedback", error);
+            setError(error.message || 'Failed to fetch data');
         } finally {
             setLoading(false);
         }
@@ -151,6 +154,11 @@ const FeedbackTable = ({ reload }: { reload: boolean }) => {
                     {loading ? (
                         <div className="p-5">
                             <Loader />
+                        </div>
+                    ) : error ? (
+                        <div className="text-center p-5 text-danger">
+                            <p className="mb-0">{error}</p>
+                            <p className="small text-muted mt-2">Check console for more details.</p>
                         </div>
                     ) : feedbacks.length === 0 ? (
                         <div className="text-center p-5 text-muted">
