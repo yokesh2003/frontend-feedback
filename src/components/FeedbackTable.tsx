@@ -5,8 +5,7 @@ import Loader from './Loader';
 
 const FeedbackTable = ({ reload }: { reload: boolean }) => {
 
-    // const navigate = useNavigate();
-    // const location = useLocation();
+
 
     const [feedbacks, setFeedbacks] = useState<Feedback[]>([]);
     const [email, setEmail] = useState('');
