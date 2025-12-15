@@ -1,9 +1,26 @@
 import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import api from '../api/api';
 import type { Feedback } from '../models/Feedback';
 import Loader from './Loader';
 
 const FeedbackTable = ({ reload }: { reload: boolean }) => {
+
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+    const key = queryParams.get('key');
+    const adminKey = import.meta.env.VITE_ADMIN_KEY;
+
+    if (key !== adminKey) {
+        return (
+            <div className="container mt-5">
+                <div className="alert alert-danger text-center" role="alert">
+                    <h4 className="alert-heading fw-bold">Access Denied</h4>
+                    <p>You do not have permission to view this page.</p>
+                </div>
+            </div>
+        );
+    }
 
 
 
