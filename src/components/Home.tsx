@@ -8,7 +8,7 @@ const Home = () => {
                     <div className="p-5 rounded-4 shadow-lg" style={{ backgroundColor: 'rgba(255, 255, 255, 0.85)', backdropFilter: 'blur(10px)' }}>
                         <h1 className="display-3 fw-bold mb-4 text-dark">Your Voice Matters</h1>
                         <p className="lead mb-4 text-dark">
-                            We are committed to providing the best experience possible.
+                            We are committed to providing the best experience possible and Good.
                             Your feedback helps us understand what we are doing right and where we can improve.
                         </p>
                         <p className="mb-5 text-secondary">
