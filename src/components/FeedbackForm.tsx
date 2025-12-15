@@ -30,7 +30,7 @@ const FeedbackForm = ({ onSuccess }: { onSuccess: () => void }) => {
             setFormData({ name: '', email: '', message: '' });
             setStatus({ type: 'success', message: 'Feedback submitted successfully!' });
             onSuccess();
-
+            console.log("Feedback submitted successfully!");
             // Clear success message after 3 seconds
             setTimeout(() => setStatus(null), 3000);
         } catch (err) {
